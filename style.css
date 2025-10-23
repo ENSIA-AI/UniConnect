@@ -92,11 +92,11 @@ header a {
 .aboutUs p {
     display: flex;
     align-items: center;
-    justify-content: center;
+    text-align-last: center;
     font-weight: 400;
     font-size: large;
     color: #000000;
-    margin: 0px 100px 50px 100px ;
+    padding: 0px 10% 50px 10% ;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
     line-height: 24px;
@@ -171,8 +171,8 @@ header a {
     display: flex;
     color: #000000;
     justify-content: center;
-    font-size: 1em;
     margin-bottom: 60px;
+    font-size: 1em;
 }
 .phone {
     display: flex;
