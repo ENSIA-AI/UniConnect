@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Group Finder</title>
+</head>
+<body>
+<!-- fixed header -->
+    <header>
+        <img src="UniConnect (2).png" alt="logo" width="100" height="100">
+        <img src="https://i.imgur.com/3QZ9t8e.png" alt="logo" width="100" height="100">
+        <h4>Study group finder</h4>
+        <a href="home.html#contact">Contact us</a>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-title">
+            <h1>Find Your Study Partners</h1>
+            <p>Connect with fellow students, form study groups, and ace your courses together</p>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search by Module, Topic, or Course">
+            </div>
+            <button class="filter-btn">
+                <i class="fas fa-filter"></i>
+                <span>Filters</span>
+            </button>
+        </div>
+        
+        <div class="content">
+            <div class="study-groups">
+                <h2 class="section-title"><i class="fas fa-users"></i> Available Study Groups</h2>
+                
+                <div class="groups-container">
+                    <!-- Study Group Card 1 -->
+                    <div class="group-card">
+                        <div class="group-header">
+                            <div class="module-name">Algorithms & Data Structures</div>
+                            <div class="status">2/5 Members</div>
+                        </div>
+                        <div class="group-details">
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Mon, Wed 3:00-5:00 PM</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Contact: (555) 123-4567</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>john.doe@university.edu</span>
+                            </div>
+                        </div>
+                        <div class="group-notes">
+                            Focusing on graph theory and dynamic programming for the upcoming midterm. Need help with complexity analysis.
+                        </div>
+                    </div>
+                    
+                    <!-- Study Group Card 2 -->
+                    <div class="group-card">
+                        <div class="group-header">
+                            <div class="module-name">Database Systems</div>
+                            <div class="status">3/4 Members</div>
+                        </div>
+                        <div class="group-details">
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Tue, Thu 10:00-11:30 AM</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Contact: (555) 987-6543</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>sarah.m@university.edu</span>
+                            </div>
+                        </div>
+                        <div class="group-notes">
+                            Reviewing SQL queries, normalization, and transaction processing. Working on final project design.
+                        </div>
+                    </div>
+                    
+                    <!-- Study Group Card 3 -->
+                    <div class="group-card">
+                        <div class="group-header">
+                            <div class="module-name">Calculus II</div>
+                            <div class="status">1/6 Members</div>
+                        </div>
+                        <div class="group-details">
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Fri 2:00-4:00 PM, Sun 1:00-3:00 PM</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Contact: (555) 456-7890</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>mike.t@university.edu</span>
+                            </div>
+                        </div>
+                        <div class="group-notes">
+                            Working on integration techniques and series. Need help with applications to physics problems.
+                        </div>
+                    </div>
+                    
+                    <!-- Study Group Card 4 -->
+                    <div class="group-card">
+                        <div class="group-header">
+                            <div class="module-name">Web Development</div>
+                            <div class="status">4/6 Members</div>
+                        </div>
+                        <div class="group-details">
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Mon 4:00-6:00 PM, Wed 2:00-4:00 PM</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Contact: (555) 234-5678</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>emily.j@university.edu</span>
+                            </div>
+                        </div>
+                        <div class="group-notes">
+                            Focusing on React.js, API integration, and responsive design. Building portfolio projects together.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="create-form">
+                <div class="form-container">
+                    <h2 class="section-title"><i class="fas fa-plus-circle"></i> Create Study Group</h2>
+                    
+                    <form id="studyGroupForm">
+                        <div class="form-group">
+                            <label for="module">Module/Course</label>
+                            <input type="text" id="module" class="form-control" placeholder="e.g., Data Structures & Algorithms">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact">Contact Email</label>
+                            <input type="email" id="contact" class="form-control" placeholder="your.email@university.edu">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Study Focus & Goals</label>
+                            <textarea id="notes" class="form-control" placeholder="What topics or chapters are you aiming to study? Any specific goals?"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Preferred Days/Times</label>
+                            <div class="time-slots">
+                                <div class="time-option">Mon AM</div>
+                                <div class="time-option">Mon PM</div>
+                                <div class="time-option">Tue AM</div>
+                                <div class="time-option">Tue PM</div>
+                                <div class="time-option">Wed AM</div>
+                                <div class="time-option">Wed PM</div>
+                                <div class="time-option">Thu AM</div>
+                                <div class="time-option">Thu PM</div>
+                                <div class="time-option">Fri AM</div>
+                                <div class="time-option">Fri PM</div>
+                                <div class="time-option">Sat AM</div>
+                                <div class="time-option">Sat PM</div>
+                                <div class="time-option">Sun AM</div>
+                                <div class="time-option">Sun PM</div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> Post Study Group Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
