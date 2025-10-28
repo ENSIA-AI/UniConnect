@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Fredoka", sans-serif;
+    background-color: #FBFBFB;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.logo {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 60px;
+    height: auto;
+}
+
+.logo img {
+    width: 200%;
+    height: auto;
+    border-radius: 8px;
+}
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid #C5BAFF; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 40px 30px;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: #333;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-row.single {
+    flex-direction: column;
+}
+
+.input-row.single input,
+.input-row.single textarea {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #C5BAFF;
+    box-shadow: 0 0 0 2px rgba(197, 186, 255, 0.2);
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+    min-height: 80px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #b4b4b4;
+    font-weight: 600;
+}
+
+.image-upload {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.image-upload label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.image-upload input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ADADAD;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Fredoka", sans-serif;
+    background-color: #fff;
+}
+
+.submit-btn {
+    background-color: #C5BAFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 35%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #a89cff;
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
