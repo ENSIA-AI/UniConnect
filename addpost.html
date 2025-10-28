@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - Add Post</title>
+    <link rel="stylesheet" href="addpost.css">
+</head>
+<body>
+        <div class="form-container">
+            <h3>Add Post</h3>
+            <form action="#" method="post">
+                <div class="input-row single">
+                    <input type="text" placeholder="Item Name" required />
+                </div>
+               <div class="logo">
+                    <img src="logo.png" alt="Logo">
+               </div>
+    
+                <div class="input-row single">
+                    <input type="text" placeholder="Place of publication" required />
+                </div>
+
+                <div class="input-row single">
+                    <input type="number" placeholder="Suggested price" required />
+                </div>
+
+                <div class="input-row single">
+                    <textarea placeholder="Description" required></textarea>
+                </div>
+
+                <div class="image-upload">
+                    <label for="image">Add image</label>
+                    <input type="file" id="image" accept="image/*" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+</body>
+</html>
