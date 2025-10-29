@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="UniConnect (2).png">
+  <title>Marketplace</title>
+  <link rel="stylesheet" href="Marketplace.css">
+</head>
+<body>
+  <!-- Fixed Header -->
+  <header>
+      <img src="UniConnect (2).png" alt="logo" width="100" height="100">
+      <h4>Marketplace</h4>
+      <a href="index.html#contact" target="_blank" rel="noopener noreferrer">Contact us</a>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+        
+      <ul class="nav-links">
+          <li><a href="#"><i class="fas fa-home"></i> <span>Home</span></a></li>
+          <li><a href="#"><i class="fas fa-search"></i> <span>Lost Items</span></a></li>
+          <li><a href="#"><i class="fas fa-users"></i> <span>Study Group Finder</span></a></li>
+          <li><a href="#" class="active"><i class="fas fa-shopping-cart"></i> <span>Marketplace</span></a></li>
+          <li><a href="#"><i class="fas fa-file-alt"></i> <span>Resource Sharing</span></a></li>
+          <li><a href="#"><i class="fas fa-tasks"></i> <span>To-do List</span></a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+      </ul>
+        
+        <div class="account-section">
+            <div class="account-links">
+                <a href="#"><i class="fas fa-user-circle"></i> <span>My account</span></a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> <span>Log out</span></a>
+            </div>
+        </div>
+    </div>
+  <!-- Main Content -->
+    <div class="main-content">
+        <div class="search-container">
+            <div class="search-bar">
+                <div class="search">Search</div>
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for an item..." id="searchInput">
+            </div>
+            <button class="add-post" id="addPostBtn">Add Post</button>
+        </div>
+        
+        <div class="content">
+            <div id="noItemsMessage" class="no-items">No items available</div>
+            <div class="items-grid" id="itemsGrid"></div>
+        </div>
+    </div>
+</body>
+</html>
