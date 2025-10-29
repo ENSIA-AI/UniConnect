@@ -180,3 +180,133 @@ header a {
     justify-content: center;
     font-size: 1em;
 }
+/* ===== RESPONSIVE DESIGN ===== */
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .main {
+        padding: 120px 100px;
+    }
+    
+    .main h1 {
+        font-size: 3em;
+    }
+    
+    .main h2 {
+        font-size: 2.5em;
+    }
+    
+    .main h3 {
+        font-size: 1.5em;
+    }
+    
+    .aboutUs p {
+        padding: 0px 5% 50px 5%;
+    }
+    
+    .card {
+        width: 9em;
+        height: 11em;
+        margin: 8px;
+    }
+}
+
+/* Mobile Phones (576px - 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+    }
+    
+    .navigation {
+        margin-top: 10px;
+    }
+    
+    .navigation a {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin: 5px;
+    }
+    
+    .main {
+        padding: 80px 30px;
+        text-align: center;
+    }
+    
+    .main h1 {
+        font-size: 2.5em;
+    }
+    
+    .main h2 {
+        font-size: 2em;
+    }
+    
+    .main h3 {
+        font-size: 1.2em;
+    }
+    
+    .interests {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: 10px 0;
+    }
+    
+    .aboutUs p {
+        padding: 0px 20px 30px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Small Mobile Phones (up to 576px) */
+@media (max-width: 576px) {
+    header {
+        padding: 10px;
+    }
+    
+    header a {
+        padding-left: 15px;
+        font-size: 1em;
+    }
+    
+    .navigation a {
+        padding: 6px 12px;
+        font-size: 0.8em;
+        margin: 3px;
+    }
+    
+    .main {
+        padding: 60px 20px;
+    }
+    
+    .main h1 {
+        font-size: 2em;
+    }
+    
+    .main h2 {
+        font-size: 1.5em;
+    }
+    
+    .main h3 {
+        font-size: 1em;
+    }
+    
+    .title, .aboutUs h2, .titleContact {
+        font-size: 1.5em;
+    }
+    
+    .email, .phone {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .email h3, .phone h3 {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+}
