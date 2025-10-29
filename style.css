@@ -70,6 +70,11 @@ header a {
     display: flex;
     justify-content: center;
 }
+img {
+    width: 100px;
+    height: 100px;
+    gap: 10px;
+}
 .title {
     display: flex;
     justify-content: center;
