@@ -77,6 +77,79 @@ header a {
 header a:hover {
     transform: scale(1.1);
 }
+/*sidebar*/
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #E8E8FF;
+    height: calc(100vh - var(--header-height));
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    padding-top: 20px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1em;
+    font-weight: 800;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--primary);
+    color: #E8E8FF;
+}
+
+.nav-links i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-links .active {
+    background-color: var(--primary);
+    color: #E8E8FF;
+}
+
+.account-section {
+    padding: 15px;
+    border-top: 1px solid var(--accent);
+}
+
+.account-links a {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1em;
+    font-weight: 800;
+}
+
+.account-links a:hover {
+    color: var(--secondary);
+}
+
+.account-links i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
 
 /* Sidebar */
 .sidebar {
