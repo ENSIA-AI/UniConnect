@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/UniConnect (2).png">
-    <link rel="stylesheet" crossorigin="anonymous" href="studyGroupFinder.css">
+    <link rel="stylesheet" href="studyGroupFinder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Study Group Finder</title>
 </head>
 <body>
@@ -15,9 +16,8 @@
         <a href="index.html#contact" target="_blank" rel="noopener noreferrer">Contact us</a>
     </header>
     
-    <!-- Sidebar Navigation -->
+    <!-- Single Sidebar Navigation with Icons -->
     <div class="sidebar">
-        
         <ul class="nav-links">
             <li><a href="#"><i class="fas fa-home"></i> <span>Home</span></a></li>
             <li><a href="#"><i class="fas fa-search"></i> <span>Lost Items</span></a></li>
@@ -39,8 +39,6 @@
     <div class="main-content">
         <div class="search-container">
             <div class="search-bar">
-                <div class="search">Search</div>
-                <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search by Module, Topic, or Course" id="searchInput">
             </div>
         </div>
@@ -52,7 +50,6 @@
                 <div class="groups-container" id="groupsContainer">
                     <!-- Empty state - no posts yet -->
                     <div class="empty-state" id="emptyState">
-                        <i class="fas fa-users"></i>
                         <h3>No Study Groups Yet</h3>
                         <p>Be the first to create a study group request!</p>
                     </div>
@@ -106,14 +103,11 @@
                             </div>
                         </div>
                         
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i> Post request
-                        </button>
+                        <button type="submit" class="btn">Post request</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
