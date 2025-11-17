@@ -6,9 +6,9 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-header{
+header {
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
-    background-color: #FBFBFB;
+    background-color: #7C3AED;
     position: fixed;
     width: 100%;
     display: flex;
@@ -17,58 +17,80 @@ header{
     align-items: center;
     padding: 10px 30px;
 }
+/* Add this to center the Home link */
+header > a {
+    text-decoration: none;
+    color: #FBFBFB;
+    font-weight: 700;
+    font-size: 1.1em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 img{
+    margin-right: auto;
     width: 60px;
     height: 60px;
 }
-header a {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
-    color: #4F46E5;
-    padding-left: 30px;
-}
 .navigation a {
     text-decoration: none;
-    color: #4F46E5;
+    color: #FBFBFB;
     font-weight: 700;
     font-size: 1.1em;
     padding: 10px 25px;
     margin-left: 15px;
-    background-color: #C5BAFF;
+    background-color: #8B5CF6;
     border-radius: 18px;
     transition: transform 0.4s ease;
     display: inline-block;
 }
 .navigation a:hover {
     transform: scale(1.1);
+    background-color: #A78BFA;
 }
 .main{
-    padding: 145px 240px;
-    background: #C5BAFF;
+    padding: 110px 100px;
+    background: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
-.main h2{
+
+.main img{
+    width: 600px; 
+    height: auto; 
+    max-width: 50%; 
+}
+.main-text {
+    flex: 1;
+    padding-right: 50px;
+}
+.main-text h2{
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     font-weight: 800;
     font-size: 3em;
-    color: #4F46E5;
+    color: #7C3AED;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
 }
-.main h1{
+.main-text h1{
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     size: 100px;
     font-weight: bold;
     font-size: 4em;
-    color: #4F46E5;
-
+    color: #4C1D95;
+    display: flex;
+    justify-content: flex-start;
 }
-.main h3{
+.main-text h3{
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-size: 2em;
-    color: #FBFBFB;
+    color: #7C3AED;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .title {
     display: flex;
@@ -76,14 +98,14 @@ header a {
     margin-bottom: 65px;
     margin-top: 65px;
     font-weight: 700;
-    color: #4F46E5;
+    color: #4C1D95;
     font-size: 2em;
 }
 .aboutUs h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #4F46E5; 
+    color: #4C1D95;
     font-size: 2em;
     font-weight: 800; 
     margin: 100px  50px 50px 50px;
@@ -114,8 +136,7 @@ header a {
     background-color: #FBFBFB;
     width: 10em;
     height: 12em;
-    border: 1px solid #000000;
-    /* box-shadow: 0px 5px 5px rgb(184, 184, 184);*/
+    border: 1px solid #DDD6FE;
     border-radius: 10px;
     margin: 10px;
     padding: 20px;
@@ -125,6 +146,7 @@ header a {
 .card:hover{
     transform: scale(1.1);
     box-shadow: 0px 5px 5px rgb(184, 184, 184);
+    border-color: #7C3AED;
 }
 .info{
     display: flex;
@@ -134,17 +156,17 @@ header a {
     height: 90%; 
 }
 .info h3{
-    color: #4F46E5; 
+    color: #4C1D95;
     font-size: 1em;
     font-weight: 800; 
     margin: 10px;
     letter-spacing: 0.5px;
 }
 .info p {
-    color: #000000; 
+    color: #000000;
 }
 .contact {
-    background: #C5BAFF;
+    background: #7C3AED;
     padding-top: 40px;
 }
 .titleContact {
@@ -152,31 +174,39 @@ header a {
     justify-content: center;
     margin-bottom: 30px;
     font-weight: 700;
-    color: #4F46E5;
+    color: #FBFBFB;
     font-size: 2em;
+}
+.email a {
+    text-decoration: none;
+    color: #A78BFA;
+}
+
+.email a:hover {
+    text-decoration: underline; /* Optional: add underline on hover only */
 }
 .email h3 {
     display: flex;
-    color: #000000;
+    color: #4C1D95;
     justify-content: center;
     font-size: 1em;
 }
 .email {
     display: flex;
-    color: #000000;
+    color: #4C1D95;
     justify-content: center;
     font-size: 1em;
 }
 .phone h3 {
     display: flex;
-    color: #000000;
+    color: #4C1D95;
     justify-content: center;
     margin-bottom: 60px;
     font-size: 1em;
 }
 .phone {
     display: flex;
-    color: #000000;
+    color: #4C1D95;
     justify-content: center;
     font-size: 1em;
 }
@@ -184,7 +214,13 @@ header a {
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
     .main {
-        padding: 120px 100px;
+        padding: 120px 80px;
+    }
+    
+    .main img {
+        width: 400px;
+        max-width: 45%;
+        margin: 0 auto 30px auto;
     }
     
     .main h1 {
@@ -198,115 +234,71 @@ header a {
     .main h3 {
         font-size: 1.5em;
     }
-    
-    .aboutUs p {
-        padding: 0px 5% 50px 5%;
-    }
-    
-    .card {
-        width: 9em;
-        height: 11em;
-        margin: 8px;
-    }
 }
 
 /* Mobile Phones (576px - 768px) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 15px;
-        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+    
+    header > a {
+        position: static;
+        transform: none;
+        order: 2; /* Home goes in middle */
+        flex: 1;
+        text-align: center;
+    }
+    
+    header img {
+        order: 1; /* Logo stays left */
+        margin-right: 0;
     }
     
     .navigation {
-        margin-top: 10px;
-    }
-    
-    .navigation a {
-        padding: 8px 15px;
-        font-size: 0.9em;
-        margin: 5px;
-    }
-    
-    .main {
-        padding: 80px 30px;
-        text-align: center;
-    }
-    
-    .main h1 {
-        font-size: 2.5em;
-    }
-    
-    .main h2 {
-        font-size: 2em;
-    }
-    
-    .main h3 {
-        font-size: 1.2em;
-    }
-    
-    .interests {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .card {
+        order: 3; /* Navigation goes to bottom */
         width: 100%;
-        max-width: 280px;
-        height: auto;
-        margin: 10px 0;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
     }
-    
-    .aboutUs p {
-        padding: 0px 20px 30px 20px;
-        font-size: 0.9em;
-    }
-}
-
-/* Small Mobile Phones (up to 576px) */
-@media (max-width: 576px) {
-    header {
-        padding: 10px;
-    }
-    
-    header a {
-        padding-left: 15px;
-        font-size: 1em;
-    }
-    
-    .navigation a {
-        padding: 6px 12px;
-        font-size: 0.8em;
-        margin: 3px;
-    }
-    
-    .main {
-        padding: 60px 20px;
-    }
-    
-    .main h1 {
-        font-size: 2em;
-    }
-    
     .main h2 {
-        font-size: 1.5em;
-    }
-    
-    .main h3 {
-        font-size: 1em;
-    }
-    
-    .title, .aboutUs h2, .titleContact {
-        font-size: 1.5em;
-    }
-    
-    .email, .phone {
-        flex-direction: column;
+        order: 2; /* Welcome to comes second */
+        justify-content: center;
         text-align: center;
     }
     
-    .email h3, .phone h3 {
-        font-size: 0.9em;
-        margin-bottom: 5px;
+    .main h1 {
+        order: 3; /* UniConnect comes third */
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .main h3 {
+        order: 4; /* Description comes last */
+        justify-content: center;
+        text-align: center;
+    }
+     .main {
+        flex-direction: column;
+        padding: 140px 20px 80px 20px;
+        text-align: center;
+    }
+    
+    .main img {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 30px;
+        margin: 0 auto 30px auto;
+    }
+    
+    .main-text {
+        order: 2;
+        padding-right: 0;
     }
 }
