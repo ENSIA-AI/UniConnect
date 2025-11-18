@@ -9,7 +9,6 @@
     <title>UniConnect | Study Group Finder</title>
 </head>
 <body>
-    <script src="studyGroupFinder.js"></script>
     <!-- Fixed Header -->
     <header>
         <img src="images/UniConnect (8).png" alt="logo" width="100" height="100">
@@ -49,13 +48,13 @@
                 <h2 class="section-title"><i class="fas fa-users"></i> Available Study Groups</h2>
                 
                 <div class="groups-container" id="groupsContainer">
-                    <!-- Empty state - no posts yet -->
-                    <div class="empty-state" id="emptyState">
-                        <h3>No Study Groups Yet</h3>
-                        <p>Be the first to create a study group request!</p>
-                    </div>
-                    
-                    <!-- Study groups will be dynamically added here -->
+                    <!-- Empty state will be shown here by JavaScript -->
+                </div>
+                
+                <!-- Empty State - Always present but controlled by JavaScript -->
+                <div class="empty-state" id="emptyState" style="display: block;">
+                    <h3>No Study Groups Yet</h3>
+                    <p>Be the first to create a study group request!</p>
                 </div>
             </div>
             
@@ -110,5 +109,7 @@
             </div>
         </div>
     </div>
+    
+    <script src="studyGroupFinder.js"></script>
 </body>
 </html>

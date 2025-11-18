@@ -29,7 +29,7 @@ body {
     display: flex;
 }
 
-/* Fixed Header - Matching My Account Page */
+/* Fixed Header */
 header {
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     background-color: #7C3AED;
@@ -161,24 +161,6 @@ header a:hover {
     background-color: #FBFBFB;
 }
 
-.page-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.page-title h1 {
-    color: #4C1D95;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.page-title p {
-    color: #6c757d;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 .search-container {
     display: flex;
     align-items: center;
@@ -239,6 +221,7 @@ header a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 25px;
+    margin-bottom: 20px;
 }
 
 .group-card {
@@ -277,6 +260,47 @@ header a:hover {
     font-weight: 600;
 }
 
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Delete button styles */
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+    transform: scale(1.1);
+}
+
+/* Owner badge */
+.owner-badge {
+    background: #4bb543;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.owner-badge i {
+    margin-right: 5px;
+}
+
 .group-details {
     margin-bottom: 15px;
 }
@@ -287,6 +311,12 @@ header a:hover {
     margin-bottom: 10px;
     color: #6c757d;
     font-size: 0.95rem;
+}
+
+.detail i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
 }
 
 .group-notes {
@@ -438,7 +468,6 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-    /* Sidebar becomes icon-only and fills vertical space */
     .sidebar {
         width: 70px;
         overflow: hidden;
@@ -476,14 +505,12 @@ textarea.form-control {
         --sidebar-width: 70px;
     }
     
-    /* Main content adjustments */
     .main-content {
         margin-left: 70px;
         padding: 15px;
         overflow-y: auto;
     }
     
-    /* Header adjustments */
     header {
         padding: 10px 15px;
     }
@@ -503,7 +530,6 @@ textarea.form-control {
         height: 50px;
     }
     
-    /* Search bar adjustments */
     .search-container {
         margin-bottom: 20px;
     }
@@ -513,13 +539,11 @@ textarea.form-control {
         font-size: 0.9em;
     }
     
-    /* Section title adjustments */
     .section-title {
         font-size: 1.1rem;
         margin-bottom: 15px;
     }
     
-    /* Group cards adjustments */
     .groups-container {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -533,7 +557,18 @@ textarea.form-control {
         font-size: 1.1rem;
     }
     
-    /* Form adjustments */
+    .delete-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .status-container {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+    
     .form-container {
         padding: 15px;
     }
@@ -567,7 +602,6 @@ textarea.form-control {
         padding: 10px;
     }
     
-    /* Even more compact on very small screens */
     .search-bar input {
         padding: 10px 12px;
     }
