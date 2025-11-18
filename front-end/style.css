@@ -48,6 +48,58 @@ img{
     transform: scale(1.1);
     background-color: #A78BFA;
 }
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #FBFBFB;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1000;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #7C3AED;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #FBFBFB;
+    font-weight: 700;
+    font-size: 1.1em;
+    padding: 15px 25px;
+    background-color: #8B5CF6;
+    border-radius: 18px;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.mobile-menu a:hover {
+    transform: scale(1.05);
+    background-color: #A78BFA;
+}
+
 .main{
     padding: 110px 100px;
     background: #FBFBFB;
@@ -210,8 +262,9 @@ img{
     justify-content: center;
     font-size: 1em;
 }
+
 /* ===== RESPONSIVE DESIGN ===== */
-/* Tablets (768px - 1024px) */
+/* Tablets and Mobile (max-width: 1024px) */
 @media (max-width: 1024px) {
     .main {
         padding: 120px 80px;
@@ -234,15 +287,13 @@ img{
     .main h3 {
         font-size: 1.5em;
     }
-}
-
-/* Mobile Phones (576px - 768px) */
-@media (max-width: 768px) {
+    
+    /* Burger menu for tablets and mobile */
     header {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 10px 15px;
+        padding: 10px 20px;
     }
     
     header > a {
@@ -259,46 +310,111 @@ img{
     }
     
     .navigation {
-        order: 3; /* Navigation goes to bottom */
-        width: 100%;
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        gap: 10px;
+        display: none; /* Hide desktop navigation */
     }
+    
+    .mobile-menu-btn {
+        display: block;
+        order: 3; /* Burger menu on right */
+    }
+    
     .main h2 {
-        order: 2; /* Welcome to comes second */
         justify-content: center;
         text-align: center;
     }
     
     .main h1 {
-        order: 3; /* UniConnect comes third */
         justify-content: center;
         text-align: center;
     }
     
     .main h3 {
-        order: 4; /* Description comes last */
         justify-content: center;
         text-align: center;
     }
-     .main {
+    
+    .main {
         flex-direction: column;
-        padding: 140px 20px 80px 20px;
+        padding: 140px 30px 80px 30px;
         text-align: center;
     }
     
     .main img {
-        order: 1;
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
         margin-bottom: 30px;
         margin: 0 auto 30px auto;
     }
     
     .main-text {
-        order: 2;
         padding-right: 0;
+    }
+}
+
+/* Small Mobile Phones (max-width: 576px) */
+@media (max-width: 576px) {
+    .main {
+        padding: 120px 15px 60px 15px;
+    }
+    
+    .main h1 {
+        font-size: 2.5em;
+    }
+    
+    .main h2 {
+        font-size: 2em;
+    }
+    
+    .main h3 {
+        font-size: 1.3em;
+    }
+    
+    .main img {
+        max-width: 250px;
+    }
+    
+    .aboutUs h2 {
+        margin: 80px 20px 30px 20px;
+        font-size: 1.7em;
+    }
+    
+    .aboutUs p {
+        padding: 0px 5% 40px 5%;
+        font-size: 0.95em;
+    }
+    
+    .title {
+        font-size: 1.7em;
+        margin: 50px 0 40px 0;
+    }
+    
+    .card {
+        width: 9em;
+        height: 11em;
+        margin: 8px;
+        padding: 15px;
+        margin-bottom: 100px;
+    }
+    
+    .titleContact {
+        font-size: 1.7em;
+    }
+    
+    header {
+        padding: 8px 10px;
+    }
+    
+    header img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    header > a {
+        font-size: 1em;
+    }
+    
+    .mobile-menu a {
+        font-size: 1em;
+        padding: 12px 20px;
     }
 }
