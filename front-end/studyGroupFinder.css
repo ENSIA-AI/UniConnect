@@ -28,7 +28,8 @@ body {
     padding-top: var(--header-height);
     display: flex;
 }
-/* Fixed Header */
+
+/* Fixed Header - Matching My Account Page */
 header {
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     background-color: #7C3AED;
@@ -40,11 +41,14 @@ header {
     align-items: center;
     padding: 10px 30px;
     top: 0;
+    height: var(--header-height);
 }
-img{
+
+img {
     width: 60px;
     height: 60px;
 }
+
 header h4 {
     position: absolute;
     left: 50%;
@@ -58,7 +62,7 @@ header h4 {
 }
 
 header a {
-     text-decoration: none;
+    text-decoration: none;
     color: #FBFBFB;
     font-weight: 700;
     font-size: 1.1em;
@@ -73,85 +77,11 @@ header a:hover {
     transform: scale(1.1);
     background-color: #A78BFA;
 }
-/*sidebar*/
-.sidebar {
-    width: var(--sidebar-width);
-    background-color: #F8FAFC;
-    height: calc(100vh - var(--header-height));
-    position: fixed;
-    left: 0;
-    top: var(--header-height);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 99;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.nav-links {
-    list-style: none;
-}
-
-.nav-links a {
-    display: flex;
-    align-items: center;
-    padding: 15px 15px;
-    color: #4C1D95;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 1em;
-    font-weight: 800;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    background-color: #7C3AED;
-    color: #F8FAFC;
-}
-
-.nav-links i {
-    margin-right: 10px;
-    width: 20px;
-    text-align: center;
-}
-
-.nav-links .active {
-    background-color: #7C3AED;
-    color: #F8FAFC;
-}
-
-.account-section {
-    padding: 15px;
-    border-top: 1px solid #8B5CF6;
-}
-
-.account-links a {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    color: #4C1D95;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 1em;
-    font-weight: 800;
-}
-
-.account-links a:hover {
-    background-color: #7C3AED;
-    color: #F8FAFC;
-}
-
-.account-links i {
-    margin-right: 10px;
-    width: 20px;
-    text-align: center;
-}
 
 /* Sidebar */
 .sidebar {
     width: var(--sidebar-width);
     background-color: #F8FAFC;
-    color: #FBFBFB;
     height: calc(100vh - var(--header-height));
     position: fixed;
     left: 0;
@@ -159,10 +89,13 @@ header a:hover {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 99;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column; 
 }
 
 .nav-links {
     list-style: none;
+    flex: 1;
 }
 
 .nav-links a {
@@ -194,6 +127,7 @@ header a:hover {
 
 .account-section {
     padding: 0px 0px;
+    border-top: 1px solid #DDD6FE; 
 }
 
 .account-links a {
@@ -504,9 +438,19 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+    /* Sidebar becomes icon-only and fills vertical space */
     .sidebar {
         width: 70px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - var(--header-height));
+    }
+    
+    .nav-links {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
     
     .nav-links span, .account-links span {
@@ -516,6 +460,7 @@ textarea.form-control {
     .nav-links a, .account-links a {
         justify-content: center;
         padding: 15px;
+        flex: 1;
     }
     
     .nav-links i, .account-links i {
@@ -523,26 +468,22 @@ textarea.form-control {
         font-size: 1.2rem;
     }
     
-    .main-content {
-        margin-left: 70px;
+    .account-section {
+        margin-top: auto;
     }
     
     :root {
         --sidebar-width: 70px;
     }
     
+    /* Main content adjustments */
     .main-content {
-        padding: 20px;
+        margin-left: 70px;
+        padding: 15px;
+        overflow-y: auto;
     }
     
-    .search-container {
-        flex-direction: column;
-    }
-    
-    .groups-container {
-        grid-template-columns: 1fr;
-    }
-    
+    /* Header adjustments */
     header {
         padding: 10px 15px;
     }
@@ -552,7 +493,116 @@ textarea.form-control {
         padding: 8px 15px;
     }
     
-    .page-title h1 {
-        font-size: 2rem;
+    header a {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+    
+    header img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Search bar adjustments */
+    .search-container {
+        margin-bottom: 20px;
+    }
+    
+    .search-bar input {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    /* Section title adjustments */
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Group cards adjustments */
+    .groups-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .group-card {
+        padding: 15px;
+    }
+    
+    .module-name {
+        font-size: 1.1rem;
+    }
+    
+    /* Form adjustments */
+    .form-container {
+        padding: 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+    
+    .time-slots {
+        gap: 8px;
+    }
+    
+    .time-option {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+    
+    /* Even more compact on very small screens */
+    .search-bar input {
+        padding: 10px 12px;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+    }
+    
+    .group-card {
+        padding: 12px;
+    }
+    
+    .module-name {
+        font-size: 1rem;
+    }
+    
+    .form-container {
+        padding: 12px;
+    }
+    
+    .form-control {
+        padding: 8px 10px;
+    }
+    
+    .time-option {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    header h4 {
+        font-size: 0.8em;
+    }
+    
+    header a {
+        font-size: 0.8em;
+        padding: 6px 12px;
     }
 }
