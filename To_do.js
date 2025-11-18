@@ -64,6 +64,13 @@ function attachFormListener() {
 // Add a single task to the DOM
 function addTaskToDOM(task, index) {
   const taskList = document.getElementById('taskList');
+
+  // Remove "No tasks yet" box if it exists
+  const noTasksBox = taskList.querySelector('.no-tasks-box');
+  if (noTasksBox) {
+    noTasksBox.remove();
+  }
+
   const taskCard = document.createElement('div');
   taskCard.className = 'task-card';
   taskCard.dataset.index = index;
@@ -86,6 +93,7 @@ function addTaskToDOM(task, index) {
   taskCard.querySelector('.edit-btn').addEventListener('click', () => editTask(index));
   taskCard.querySelector('.delete-btn').addEventListener('click', () => showDeletePopup(index));
 }
+
 
 // Edit a task
 function editTask(index) {
@@ -139,3 +147,4 @@ function escapeHtml(text) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
   return text.replace(/[&<>"']/g, m => map[m]);
 }
+
