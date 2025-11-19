@@ -1,9 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
 const searchInput = document.getElementById('searchInput');
 const itemsGrid = document.getElementById('itemsGrid');
-const allCards = itemsGrid.querySelectorAll('.item-card');
+loadModules();
+function loadModules() {
+let savedModules = JSON.parse(localStorage.getItem('uniconnectModules')) || [];
+if (savedModules.length > 0) {
+savedModules.forEach(module => {
+addModuleCard(module);
+});
+}
+}
+function addModuleCard(moduleData) {
+const card = document.createElement('a');
+card.className = 'item-card';
+card.href = moduleData.moduleLink;
+card.target = '_blank';
+card.rel = 'noopener noreferrer';
+const imageUrl = moduleData.imageUrl || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop';
+card.innerHTML = `
+<div class="img-box">
+<img src="${imageUrl}" alt="Module" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop'">
+<div class="overlay">
+<i class="fas fa-arrow-right"></i>
+</div>
+</div>
+<div class="info">
+<div class="title">Module: ${moduleData.moduleName}</div>
+<div class="sub"><i class="fas fa-calendar-alt"></i> ${moduleData.semester} · Coefficient: ${moduleData.coefficient}</div>
+<div class="owner-email"><i class="fas fa-user"></i> ${moduleData.ownerEmail}</div>
+<div class="resources-count">
+<i class="fas fa-file-alt"></i> ${moduleData.resourcesCount || 0} Resources Available
+</div>
+</div>
+`;
+itemsGrid.appendChild(card);
+}
 searchInput.addEventListener('input', function() {
 const searchTerm = this.value.toLowerCase().trim();
+const allCards = itemsGrid.querySelectorAll('.item-card');
 allCards.forEach(card => {
 const title = card.querySelector('.title').textContent.toLowerCase();
 const sub = card.querySelector('.sub').textContent.toLowerCase();
