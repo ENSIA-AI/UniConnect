@@ -51,9 +51,9 @@ header img {
     height: 60px;
 }
 
-header h1 {
+header h4 {
     color: var(--light);
-    font-size: 1.8em;
+    font-size: 1.1em;
     margin: 0;
 }
 
@@ -92,7 +92,7 @@ header a:hover {
 
 .nav-links {
     list-style: none;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .nav-links a {
@@ -103,12 +103,12 @@ header a:hover {
     text-decoration: none;
     transition: all 0.3s;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    background-color: var(--primary);
-    color: var(--light);
+    background-color: #7C3AED;
+    color: #F8FAFC;
 }
 
 .nav-links i {
@@ -124,7 +124,7 @@ header a:hover {
 
 .account-section {
     padding: 15px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #8B5CF6;
 }
 
 .account-links a {
@@ -135,11 +135,12 @@ header a:hover {
     text-decoration: none;
     transition: all 0.3s;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .account-links a:hover {
-    color: var(--primary);
+   background-color: #7C3AED;
+   color: #F8FAFC;
 }
 
 .account-links i {
@@ -523,6 +524,7 @@ header a:hover {
     .sidebar {
         width: 70px;
         overflow: hidden;
+        position:fixed;
     }
     
     .nav-links span, .account-links span {
