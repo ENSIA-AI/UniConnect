@@ -1,5 +1,5 @@
 <?php
-// back_end/create_user.php
+// back_end/CreateUser.php
 header('Content-Type: application/json');
 require_once 'db_connection.php';
 
