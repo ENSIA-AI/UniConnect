@@ -6,7 +6,7 @@
 // API Configuration
 // Use this to work with both:
 // API Configuration - USE THIS EXACT URL
-const API_BASE_URL = 'http://localhost:8000/api/items';
+const API_BASE_URL = 'http://localhost:8000/items';
 
 // OR use dynamic URL based on current location
 // const API_BASE_URL = `${window.location.origin}/api/items`;
@@ -343,7 +343,6 @@ async function handleLostFormSubmit(e) {
         const response = await fetch(`${API_BASE_URL}/lost`, {
             method: 'POST',
             body: formData
-            // Note: Don't set Content-Type header for FormData
         });
         
         const data = await response.json();
@@ -403,7 +402,8 @@ async function handleFoundFormSubmit(e) {
             body: formData
             // Note: Don't set Content-Type header for FormData
         });
-        
+        // console.log(response)
+        alert('dfdf');
         const data = await response.json();
         
         if (data.success) {
@@ -652,7 +652,7 @@ function closeSuccessModal() {
  */
 function showErrorMessage(message) {
     // You can implement a toast notification or alert
-    alert(message); // Simple alert for now
+  
 }
 
 /**
