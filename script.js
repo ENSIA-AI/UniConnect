@@ -1,4 +1,5 @@
 // Landing Page JavaScript
+// Landing Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
