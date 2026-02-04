@@ -65,7 +65,7 @@ img{
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 80px;
+    top: 70px;  /* Reduced from 80px to eliminate white space gap */
     left: 0;
     width: 100%;
     background-color: #7C3AED;
@@ -305,17 +305,13 @@ img{
     }
     
     header img {
-        order: 1; /* Logo stays left */
+        order: 1; 
         margin-right: 0;
     }
     
+    /* Modified: Added to keep nav on the right for tablets */
     .navigation {
-        display: none; /* Hide desktop navigation */
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-        order: 3; /* Burger menu on right */
+        order: 3;
     }
     
     .main h2 {
@@ -416,5 +412,16 @@ img{
     .mobile-menu a {
         font-size: 1em;
         padding: 12px 20px;
+    }
+    .mobile-menu-btn {
+    order: 3; 
+    }
+    /* Added to hide nav and show hamburger on phones only */
+    .navigation {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
     }
 }
