@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
 *{
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
 header {
     font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     background-color: #7C3AED;
@@ -17,21 +19,13 @@ header {
     align-items: center;
     padding: 10px 30px;
 }
-/* Add this to center the Home link */
-header > a {
-    text-decoration: none;
-    color: #FBFBFB;
-    font-weight: 700;
-    font-size: 1.1em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 img{
     margin-right: auto;
     width: 60px;
     height: 60px;
 }
+
 .navigation a {
     text-decoration: none;
     color: #FBFBFB;
@@ -44,6 +38,7 @@ img{
     transition: transform 0.4s ease;
     display: inline-block;
 }
+
 .navigation a:hover {
     transform: scale(1.1);
     background-color: #A78BFA;
@@ -65,7 +60,7 @@ img{
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 70px;  /* Reduced from 80px to eliminate white space gap */
+    top: 70px;
     left: 0;
     width: 100%;
     background-color: #7C3AED;
@@ -114,36 +109,31 @@ img{
     height: auto; 
     max-width: 50%; 
 }
+
 .main-text {
     flex: 1;
     padding-right: 50px;
 }
+
 .main-text h2{
-    font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     font-weight: 800;
     font-size: 3em;
     color: #7C3AED;
     padding-bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
 }
+
 .main-text h1{
-    font-family: 'Fredoka', Arial, Helvetica, sans-serif;
-    size: 100px;
     font-weight: bold;
     font-size: 4em;
     color: #4C1D95;
-    display: flex;
-    justify-content: flex-start;
 }
+
 .main-text h3{
-    font-family: 'Fredoka', Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-size: 2em;
     color: #7C3AED;
-    display: flex;
-    justify-content: flex-start;
 }
+
 .title {
     display: flex;
     justify-content: center;
@@ -153,6 +143,7 @@ img{
     color: #4C1D95;
     font-size: 2em;
 }
+
 .aboutUs h2{
     display: flex;
     align-items: center;
@@ -163,28 +154,26 @@ img{
     margin: 100px  50px 50px 50px;
     letter-spacing: 0.5px;
 }
+
 .aboutUs p {
-    display: flex;
-    align-items: center;
     text-align-last: center;
     font-weight: 400;
     font-size: large;
     color: #000000;
     padding: 0px 10% 50px 10% ;
-    transition: all 0.3s ease;
     letter-spacing: 0.5px;
-    line-height: 24px;
     line-height: 2;
 }
+
 .interests {
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .card {
     display: flex;
-    text-decoration: none;
     background-color: #FBFBFB;
     width: 10em;
     height: 12em;
@@ -195,11 +184,13 @@ img{
     margin-bottom: 145px;
     transition: 0.4s ease;
 }
+
 .card:hover{
     transform: scale(1.1);
     box-shadow: 0px 5px 5px rgb(184, 184, 184);
     border-color: #7C3AED;
 }
+
 .info{
     display: flex;
     text-align: center; 
@@ -207,20 +198,23 @@ img{
     justify-content: center; 
     height: 90%; 
 }
+
 .info h3{
     color: #4C1D95;
     font-size: 1em;
     font-weight: 800; 
     margin: 10px;
-    letter-spacing: 0.5px;
 }
+
 .info p {
     color: #000000;
 }
+
 .contact {
     background: #7C3AED;
     padding-top: 40px;
 }
+
 .titleContact {
     display: flex;
     justify-content: center;
@@ -229,198 +223,51 @@ img{
     color: #FBFBFB;
     font-size: 2em;
 }
+
 .email a {
     text-decoration: none;
     color: #A78BFA;
 }
 
 .email a:hover {
-    text-decoration: underline; /* Optional: add underline on hover only */
+    text-decoration: underline;
 }
-.email h3 {
-    display: flex;
-    color: #4C1D95;
-    justify-content: center;
-    font-size: 1em;
-}
-.email {
-    display: flex;
-    color: #4C1D95;
-    justify-content: center;
-    font-size: 1em;
-}
-.phone h3 {
-    display: flex;
-    color: #4C1D95;
-    justify-content: center;
-    margin-bottom: 60px;
-    font-size: 1em;
-}
+
+.email,
 .phone {
     display: flex;
-    color: #4C1D95;
     justify-content: center;
+    color: #4C1D95;
     font-size: 1em;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-/* Tablets and Mobile (max-width: 1024px) */
+.phone h3 {
+    margin-bottom: 60px;
+}
+
+/* ===== RESPONSIVE ===== */
+
 @media (max-width: 1024px) {
-    .main {
-        padding: 120px 80px;
-    }
-    
-    .main img {
-        width: 400px;
-        max-width: 45%;
-        margin: 0 auto 30px auto;
-    }
-    
-    .main h1 {
-        font-size: 3em;
-    }
-    
-    .main h2 {
-        font-size: 2.5em;
-    }
-    
-    .main h3 {
-        font-size: 1.5em;
-    }
-    
-    /* Burger menu for tablets and mobile */
-    header {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-    
-    header > a {
-        position: static;
-        transform: none;
-        order: 2; /* Home goes in middle */
-        flex: 1;
-        text-align: center;
-    }
-    
-    header img {
-        order: 1; 
-        margin-right: 0;
-    }
-    
-    /* Modified: Added to keep nav on the right for tablets */
-    .navigation {
-        order: 3;
-    }
-    
-    .main h2 {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .main h1 {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .main h3 {
-        justify-content: center;
-        text-align: center;
-    }
-    
     .main {
         flex-direction: column;
         padding: 140px 30px 80px 30px;
         text-align: center;
     }
-    
+
     .main img {
-        width: 100%;
         max-width: 350px;
         margin-bottom: 30px;
-        margin: 0 auto 30px auto;
-    }
-    
-    .main-text {
-        padding-right: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-/* Small Mobile Phones (max-width: 576px) */
 @media (max-width: 576px) {
-    .main {
-        padding: 120px 15px 60px 15px;
-    }
-    
-    .main h1 {
-        font-size: 2.5em;
-    }
-    
-    .main h2 {
-        font-size: 2em;
-    }
-    
-    .main h3 {
-        font-size: 1.3em;
-    }
-    
-    .main img {
-        max-width: 250px;
-    }
-    
-    .aboutUs h2 {
-        margin: 80px 20px 30px 20px;
-        font-size: 1.7em;
-    }
-    
-    .aboutUs p {
-        padding: 0px 5% 40px 5%;
-        font-size: 0.95em;
-    }
-    
-    .title {
-        font-size: 1.7em;
-        margin: 50px 0 40px 0;
-    }
-    
-    .card {
-        width: 9em;
-        height: 11em;
-        margin: 8px;
-        padding: 15px;
-        margin-bottom: 100px;
-    }
-    
-    .titleContact {
-        font-size: 1.7em;
-    }
-    
-    header {
-        padding: 8px 10px;
-    }
-    
-    header img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    header > a {
-        font-size: 1em;
-    }
-    
-    .mobile-menu a {
-        font-size: 1em;
-        padding: 12px 20px;
-    }
-    .mobile-menu-btn {
-    order: 3; 
-    }
-    /* Added to hide nav and show hamburger on phones only */
     .navigation {
         display: none;
     }
-    
+
     .mobile-menu-btn {
         display: block;
     }

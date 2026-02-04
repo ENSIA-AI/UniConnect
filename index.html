@@ -5,95 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="images/UniConnect (8).png">
-    <link rel="stylesheet" crossorigin="anonymous" href="style.css">
-    <title>UniConnect | Home</title> 
+    <link rel="stylesheet" href="style.css">
+    <title>UniConnect | Home</title>
 </head>
-<body>
-    <script src="script.js"></script>
-    <header>
-        <img src="images/UniConnect (8).png" alt="logo" width="100" height="100">
-        <a href="#home">Home</a>
-        <nav class="navigation"> 
-             <a href="#aboutUs">About us</a>
-             <a href="#contact">Contact us</a>
-             <a href="#signin">Sign in</a>
-        </nav>
-        <!-- Mobile menu button -->
-         <button id="mobileMenuBtn" class="mobile-menu-btn">
-            <i class="fa-solid fa-bars-staggered"></i> 
-        </button>
-    </header>
-    <!-- Mobile menu container -->
-    <div id="mobileMenu" class="mobile-menu">
-        <a href="#home">Home</a>
+
+<body id="home">
+
+<header>
+    <img src="images/UniConnect (8).png" alt="logo">
+
+    <!-- Home moved INSIDE nav -->
+    <nav class="navigation">
+        <a href="index.html">Home</a>
         <a href="#aboutUs">About us</a>
         <a href="#contact">Contact us</a>
         <a href="#signin">Sign in</a>
-    </div>
-    <section class="main"> 
-          <img src="images/undraw_real-time-collaboration_bchs.png" alt="image">
+    </nav>
+
+    <button id="mobileMenuBtn" class="mobile-menu-btn">
+        <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+</header>
+
+<div id="mobileMenu" class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="#aboutUs">About us</a>
+    <a href="#contact">Contact us</a>
+    <a href="#signin">Sign in</a>
+</div>
+
+<section class="main">
+    <img src="images/undraw_real-time-collaboration_bchs.png" alt="image">
     <div class="main-text">
         <h2>Welcome to</h2>
-        <br>
         <h1>UniConnect</h1>
-        <br>
         <h3>Connect, share, and organize <br> your student life in one place !</h3>
     </div>
-    </section>
-    <section class="aboutUs" id="aboutUs">
-        <h2>About us</h2>
-        <p>
-            UniConnect is a student hub created by students, for students. We built this platform to solve the everyday challenges of campus life - from finding study groups to recovering lost items.
+</section>
 
-            Our mission is to create a more connected campus community where students can easily share resources, support each other, and make university life more organized and collaborative.
+<section class="aboutUs" id="aboutUs">
+    <h2>About us</h2>
+    <p>
+        UniConnect is a student hub created by students, for students.
+        We built this platform to solve the everyday challenges of campus life.
+        We believe in making student life simpler, together.
+    </p>
+</section>
 
-            We believe in making student life simpler, together.
-        </p>
-    </section>
-    <section class="cards">
-        <h2 class="title">Find our services</h2>
-        <div class="interests"> 
-            <div class="card">
-                <div class="info">
-                    <h3>Lost items</h3>
-                    <p>Report, find, and return campus items</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Study group finder</h3>
-                    <p>Connect with peers to study together</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Marketplace</h3>
-                    <p>Buy, sell, and trade with students</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>Resource sharing</h3>
-                    <p>Share notes and materials easily</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <h3>To-Do list</h3>
-                    <p>Organize tasks and stay on track</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact" id="contact">
-            <h2 class="titleContact">Contact us</h2>
-        <div class="email">
-            <h3>Email : </h3>
-            <a href="mailto:uniconnect@ensia.edu.dz">uniconnect@ensia.edu.dz</a>
-        </div>
-            <div class="phone">
-               <h3>Phone number : +213 555 55 55 55</h3>
-            </div>
-    </section>
+<section class="cards">
+    <h2 class="title">Find our services</h2>
+    <div class="interests">
+        <div class="card"><div class="info"><h3>Lost items</h3><p>Report, find, and return campus items</p></div></div>
+        <div class="card"><div class="info"><h3>Study group finder</h3><p>Connect with peers</p></div></div>
+        <div class="card"><div class="info"><h3>Marketplace</h3><p>Buy, sell, and trade</p></div></div>
+        <div class="card"><div class="info"><h3>Resource sharing</h3><p>Share notes</p></div></div>
+        <div class="card"><div class="info"><h3>To-Do list</h3><p>Stay organized</p></div></div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="titleContact">Contact us</h2>
+    <div class="email">
+        <h3>Email :</h3>
+        <a href="mailto:uniconnect@ensia.edu.dz">uniconnect@ensia.edu.dz</a>
+    </div>
+    <div class="phone">
+        <h3>Phone number : +213 555 55 55 55</h3>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
