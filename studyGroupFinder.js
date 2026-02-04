@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         studyGroups.unshift(newGroup);
-        renderGroups();
+        renderGroups(searchInput.value.toLowerCase());
 
-        // Reset form → placeholders come back automatically
+        // Reset form
         form.reset();
         selectedTimes = [];
         timeSlots.forEach(t => t.classList.remove('selected'));
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification('Study group created successfully!', 'success');
     });
 
-    /* ================= SEARCH ================= */
+    /* ================= SEARCH (FIXED) ================= */
     searchInput.addEventListener('input', () => {
         renderGroups(searchInput.value.toLowerCase());
     });
@@ -102,9 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
         showNotification('Study group deleted successfully!', 'success');
     };
 
-    /* ================= RENDER ================= */
+    /* ================= RENDER (FIXED) ================= */
     function renderGroups(search = '') {
-        groupsContainer.innerHTML = '';
+        // Remove ONLY existing cards
+        groupsContainer.querySelectorAll('.group-card').forEach(card => card.remove());
 
         const filtered = studyGroups.filter(g =>
             g.module.toLowerCase().includes(search) ||
@@ -112,7 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
             g.email.toLowerCase().includes(search)
         );
 
-        emptyState.style.display = filtered.length ? 'none' : 'block';
+        if (filtered.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        emptyState.style.display = 'none';
 
         filtered.forEach(group => {
             const isOwner = group.userId === currentUserId;
@@ -177,4 +183,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
-
