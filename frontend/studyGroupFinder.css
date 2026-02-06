@@ -134,6 +134,7 @@ header a:hover {
     color: #4C1D95;
     text-decoration: none;
     font-weight: 800;
+    transition: 0.3s;
 }
 
 .account-links a:hover {
