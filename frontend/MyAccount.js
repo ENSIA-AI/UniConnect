@@ -1,70 +1,155 @@
-// My Account JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const changePhotoBtn = document.querySelector('.change-photo-btn');
-    const avatarPlaceholder = document.querySelector('.avatar-placeholder');
+document.addEventListener('DOMContentLoaded', async function() {
     
-    // Change photo functionality
-    if (changePhotoBtn && avatarPlaceholder) {
-        changePhotoBtn.addEventListener('click', function() {
-            // Create file input for photo upload
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = 'image/*';
-            
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        // Create img element instead of using icon
-                        avatarPlaceholder.innerHTML = '';
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.style.width = '100%';
-                        img.style.height = '100%';
-                        img.style.borderRadius = '50%';
-                        img.style.objectFit = 'cover';
-                        avatarPlaceholder.appendChild(img);
-                    };
-                    reader.readAsDataURL(file);
+    /* ================= SIDEBAR TOGGLE ================= */
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    }
+
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const viewMode = document.getElementById('viewMode');
+    const editMode = document.getElementById('editMode');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    let userData = null;
+    
+    const token = localStorage.getItem('auth_token') || 
+                  sessionStorage.getItem('auth_token') || 
+                  getCookie('auth_token');
+    
+    if (!token) {
+        alert('Please sign in first');
+        window.location.href = 'signin.html';
+        return;
+    }
+
+    async function loadUserProfile() {
+        try {
+            const response = await fetch('http://localhost/UniConnect/backend/api/auth.php', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
                 }
             });
-            
-            fileInput.click();
-        });
+
+            if (response.ok) {
+                const data = await response.json();
+                userData = data.user;
+
+                document.getElementById('firstName').textContent = userData.first_name || 'N/A';
+                document.getElementById('lastName').textContent = userData.last_name || 'N/A';
+                document.getElementById('username').textContent = userData.username || 'N/A';
+                document.getElementById('email').textContent = userData.email || 'N/A';
+
+            } else if (response.status === 401) {
+                alert('Session expired. Please sign in again.');
+                localStorage.removeItem('auth_token');
+                sessionStorage.removeItem('auth_token');
+                window.location.href = 'signin.html';
+            } else {
+                const errorData = await response.json();
+                console.error('Error loading profile:', errorData);
+                alert('Failed to load profile: ' + (errorData.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Connection error:', error);
+            alert('Connection error. Please check if the backend server is running.');
+        }
     }
 
-    // Form submission handling
-    const profileForm = document.getElementById('profileForm');
-    if (profileForm) {
-        profileForm.addEventListener('submit', function(e) {
+    await loadUserProfile();
+
+    editBtn.addEventListener('click', function() {
+        document.getElementById('editFirstName').value = userData.first_name || '';
+        document.getElementById('editLastName').value = userData.last_name || '';
+        document.getElementById('editUsername').value = userData.username || '';
+        document.getElementById('editEmail').value = userData.email || '';
+
+        viewMode.style.display = 'none';
+        editMode.style.display = 'grid';
+        editBtn.style.display = 'none';
+    });
+
+    cancelBtn.addEventListener('click', function() {
+        viewMode.style.display = 'grid';
+        editMode.style.display = 'none';
+        editBtn.style.display = 'flex';
+    });
+
+    saveBtn.addEventListener('click', async function() {
+        const updatedData = {
+            first_name: document.getElementById('editFirstName').value.trim(),
+            last_name: document.getElementById('editLastName').value.trim(),
+            username: document.getElementById('editUsername').value.trim(),
+            email: document.getElementById('editEmail').value.trim()
+        };
+
+        if (!updatedData.first_name || !updatedData.last_name || !updatedData.username || !updatedData.email) {
+            alert('All fields are required');
+            return;
+        }
+
+        const emailRegex = /^[a-zA-Z]+\.[a-zA-Z]+@ensia\.edu\.dz$/;
+        if (!emailRegex.test(updatedData.email)) {
+            alert('Email must be in format: firstname.lastname@ensia.edu.dz');
+            return;
+        }
+
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+
+        try {
+            const response = await fetch('http://localhost/UniConnect/backend/public/myaccount.php', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (response.ok) {
+                alert('Profile updated successfully!');
+                await loadUserProfile();
+                viewMode.style.display = 'grid';
+                editMode.style.display = 'none';
+                editBtn.style.display = 'flex';
+            } else {
+                const errorData = await response.json();
+                alert('Failed to update profile: ' + (errorData.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            alert('Connection error. Please try again.');
+        } finally {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Changes';
+        }
+    });
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Simple validation
-            const username = document.getElementById('username');
-            const email = document.getElementById('email');
-            
-            if (username && username.value.length < 3) {
-                alert('Username must be at least 3 characters long');
-                return;
+            if (confirm('Are you sure you want to log out?')) {
+                localStorage.removeItem('auth_token');
+                sessionStorage.removeItem('auth_token');
+                document.cookie = 'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                window.location.href = 'index.html';
             }
-            
-            if (email && !validateEmail(email.value)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            // Show success message
-            alert('Profile updated successfully!');
-            
-            // In a real app, you would send data to server here
-            console.log('Profile data saved');
         });
-    }
-
-    // Email validation helper
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
     }
 });
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
