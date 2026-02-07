@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/UniConnect (8).png" />
+    <title>UniConnect | To-do List</title>
+    <link rel="stylesheet" href="css/To_do.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+     <header>
+    <img src="images/UniConnect (8).png" alt="logo" width="60" height="60" />
+    <h4>To-do List</h4>
+    <a href="index.html#contact" target="_blank" rel="noopener noreferrer">Contact us</a>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul class="nav-links">
+      <li><a href="home.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="lost.html"><i class="fas fa-search"></i> <span>Lost Items</span></a></li>
+      <li><a href="studyGroupFinder.html"><i class="fas fa-users"></i> <span>Study Group Finder</span></a></li>
+      <li><a href="Marketplace.html"><i class="fas fa-shopping-cart"></i> <span>Marketplace</span></a></li>
+      <li><a href="resourcesharing.html"><i class="fas fa-file-alt"></i> <span>Resource Sharing</span></a></li>
+      <li><a href="To_do.html" class="active"><i class="fas fa-tasks"></i> <span>To-do List</span></a></li>
+    </ul>
+    <div class="account-section">
+      <div class="account-links">
+        <a href="MyAccount.html"><i class="fas fa-user-circle"></i> <span>My account</span></a>
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> <span>Log out</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="todo-grid" id="taskList">
+      <!-- Tasks will be dynamically added here -->
+    </div>
+
+    <div class="add-task">
+      <h2>Add new Task</h2>
+      <form id="taskForm">
+        <label>Task Title</label>
+        <input type="text" id="taskTitle" placeholder="e.g., Submit project proposal" required />
+        <label>Description</label>
+        <textarea id="taskDesc" placeholder="Description"></textarea>
+        <label>Due Date</label>
+        <input type="date" id="taskDate" required />
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="confirmPopup" class="confirm-popup">
+    <div class="popup-box">
+      <p>Do you really want to delete this task?</p>
+      <div class="popup-buttons">
+        <button id="confirmYes">Yes</button>
+        <button id="confirmNo">No</button>
+      </div>
+    </div>
+  </div>
+    <script src="js/api-config.js"></script>
+    <script src="js/To_do.js"></script>
+</body>
+</html>
