@@ -1,11 +1,8 @@
 <?php
-// Start output buffering to prevent header issues
-ob_start();
-
-// Enable error reporting but don't display errors to client
+// Enable all error reporting
 error_reporting(E_ALL);
-ini_set('display_errors', 0);
-ini_set('log_errors', 1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
@@ -17,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-// Include required files
-require_once __DIR__ . '/database.php';
-require_once __DIR__ . '/model.php';
-require_once __DIR__ . '/middleware.php';
+// Include required files - FIXED: Use correct paths
+require_once __DIR__ . '/../database.php';
+require_once __DIR__ . '/../model.php';
+require_once __DIR__ . '/../middleware.php';
 
 try {
     $database = new Database();
@@ -33,7 +30,6 @@ try {
     $item = new LostFoundItem($db);
     
 } catch (Exception $e) {
-    ob_clean();
     http_response_code(500);
     echo json_encode([
         'error' => 'Setup error',
@@ -108,7 +104,6 @@ switch($method) {
                 
                 $verified = !empty($check_result);
                 
-                ob_clean();
                 http_response_code(201);
                 echo json_encode([
                     "message" => "Item reported successfully.",
@@ -130,7 +125,6 @@ switch($method) {
             }
             
         } catch (Exception $e) {
-            ob_clean();
             http_response_code(400);
             echo json_encode([
                 "message" => "Error creating item",
@@ -155,7 +149,6 @@ switch($method) {
                 $items_arr[] = $row;
             }
 
-            ob_clean();
             http_response_code(200);
             echo json_encode([
                 "status" => "success",
@@ -164,7 +157,6 @@ switch($method) {
             ]);
             
         } catch (Exception $e) {
-            ob_clean();
             http_response_code(500);
             echo json_encode([
                 "message" => "Error fetching items",
@@ -183,7 +175,6 @@ switch($method) {
             $item->id = $_GET['id'];
             
             if ($item->delete()) {
-                ob_clean();
                 http_response_code(200);
                 echo json_encode([
                     "message" => "Item deleted successfully.",
@@ -194,7 +185,6 @@ switch($method) {
             }
             
         } catch (Exception $e) {
-            ob_clean();
             http_response_code(400);
             echo json_encode([
                 "message" => "Error deleting item",
@@ -230,7 +220,6 @@ switch($method) {
             $item->status = $data->status;
 
             if ($item->update()) {
-                ob_clean();
                 http_response_code(200);
                 echo json_encode([
                     "message" => "Item updated successfully.",
@@ -242,7 +231,6 @@ switch($method) {
             }
 
         } catch (Exception $e) {
-            ob_clean();
             http_response_code(400);
             echo json_encode([
                 "message" => "Error updating item",
@@ -253,7 +241,6 @@ switch($method) {
         break;
 
     default:
-        ob_clean();
         http_response_code(405);
         echo json_encode([
             "message" => "Method not allowed",
