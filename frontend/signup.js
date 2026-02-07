@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Sending signup request...'); // Debug
 
     try {
-      const response = await fetch('http://localhost/UniConnect/backend/public/signup.php', {
+      const response = await fetch('http://localhost/UniConnect/backend/api/auth.php?action=register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

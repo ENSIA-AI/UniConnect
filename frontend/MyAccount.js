@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     async function loadUserProfile() {
         try {
-            const response = await fetch('http://localhost/UniConnect/backend/public/myaccount.php', {
+            const response = await fetch('http://localhost/UniConnect/backend/api/auth.php', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,

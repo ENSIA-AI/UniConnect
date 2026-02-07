@@ -1,5 +1,5 @@
 // Updated API URL - adjust based on your folder structure
-const API_URL = "http://localhost/UniConnect/backend/public/index.php";
+const API_URL = "http://localhost/UniConnect/backend/api/studygroups.php";
 
 document.addEventListener('DOMContentLoaded', () => {
 
