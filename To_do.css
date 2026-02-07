@@ -395,6 +395,7 @@ input.invalid {
   .sidebar {
     width: 70px;
     overflow: hidden;
+    position:fixed;
   }
 
   .nav-links span, .account-links span {
