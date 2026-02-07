@@ -96,6 +96,7 @@ CREATE TABLE lost_found_items (
     status ENUM('lost', 'found') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (contact_email) REFERENCES users(email) ON DELETE CASCADE,
     INDEX idx_status (status),
     INDEX idx_category (category),
     INDEX idx_contact (contact_email)
