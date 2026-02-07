@@ -1,40 +1,30 @@
 <?php
 require_once 'database.php';
 
-try {
-    $db = new Database();
-    $conn = $db->getConnection();
+$database = new Database();
+$db = $database->getConnection();
+
+if ($db) {
+    echo "Database connection SUCCESS!<br>";
     
-    if (!$conn) {
-        echo "ERROR: Could not connect to database\n";
-        exit(1);
-    }
+    // Test insert
+    $stmt = $db->prepare("INSERT INTO lost_found_items (title, category, description, location, date_lost_found, contact_email, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $result = $stmt->execute([
+        'Test Item', 
+        'wallet', 
+        'Test description', 
+        'Library', 
+        '2024-01-20', 
+        'test@example.com', 
+        'lost'
+    ]);
     
-    echo "Connected to database successfully\n";
-    
-    // Check tables exist
-    $stmt = $conn->query("SHOW TABLES LIKE 'lost_found_items'");
-    if ($stmt->rowCount() > 0) {
-        echo "✓ lost_found_items table exists\n";
+    if ($result) {
+        echo "Insert SUCCESS! ID: " . $db->lastInsertId();
     } else {
-        echo "✗ lost_found_items table NOT found\n";
-        exit(1);
+        echo "Insert FAILED!";
     }
-    
-    // Count items
-    $result = $conn->query("SELECT COUNT(*) as count FROM lost_found_items");
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    echo "Items in database: " . $row['count'] . "\n";
-    
-    // List all items
-    $result = $conn->query("SELECT id, title, status, created_at FROM lost_found_items ORDER BY created_at DESC LIMIT 10");
-    echo "\nRecent items:\n";
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo "  ID: {$row['id']}, Title: {$row['title']}, Status: {$row['status']}, Created: {$row['created_at']}\n";
-    }
-    
-} catch (Exception $e) {
-    echo "ERROR: " . $e->getMessage() . "\n";
-    exit(1);
+} else {
+    echo "Database connection FAILED!";
 }
 ?>
