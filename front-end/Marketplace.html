@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - UniConnect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Marketplace.css">
+    <style>
+        /* Logo Styles */
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo-container span {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        /* Remove card hover movement */
+        .item-card:hover {
+            transform: none !important;
+            box-shadow: 0 6px 12px rgba(124, 58, 237, 0.15) !important;
+        }
+
+        /* Show action buttons on all cards */
+        .item-actions {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="logo.png" alt="UniConnect Logo" onerror="this.src='https://via.placeholder.com/50?text=UC'">
+        <span>UniConnect</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h4>Marketplace</h4>
+        <a href="#">Contact us</a>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul class="nav-links">
+            <li><a href="Home.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="LostItems.html"><i class="fas fa-search"></i><span>Lost Items</span></a></li>
+            <li><a href="StudyGroupFinder.html"><i class="fas fa-users"></i><span>Study Group Finder</span></a></li>
+            <li><a href="Marketplace.html" class="active"><i class="fas fa-shopping-cart"></i><span>Marketplace</span></a></li>
+            <li><a href="ResourceSharing.html"><i class="fas fa-book"></i><span>Resource Sharing</span></a></li>
+            <li><a href="To_do.html"><i class="fas fa-list"></i><span>To-do List</span></a></li>
+        </ul>
+
+        <div class="account-section">
+            <div class="account-links">
+                <a href="MyAccount.html"><i class="fas fa-user-circle"></i><span>My account</span></a>
+                <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Log out</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Search Container -->
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for an item...">
+            </div>
+            <a href="AddPost.html" class="add-post">
+                <i class="fas fa-plus"></i> Add Post
+            </a>
+        </div>
+        
+        <!-- Items Grid -->
+        <div id="marketplace-items" class="items-grid">
+            <!-- Items will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <!-- Item Detail Modal -->
+    <div id="itemModal" class="modal-overlay" style="display: none;">
+        <!-- Modal content will be added by JavaScript -->
+    </div>
+
+    <script src="marketplace.js"></script>
+</body>
+</html>
