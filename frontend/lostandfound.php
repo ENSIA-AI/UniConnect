@@ -168,6 +168,9 @@ switch($method) {
 
     case 'DELETE':
         try {
+            // DELETE requires authentication
+            $current_user = Auth::requireAuth();
+            
             if (!isset($_GET['id'])) {
                 throw new Exception("Item ID is required.");
             }
@@ -185,55 +188,10 @@ switch($method) {
             }
             
         } catch (Exception $e) {
-            http_response_code(400);
+            $status_code = ($e->getMessage() === "Unauthorized - Invalid or expired token") ? 401 : 400;
+            http_response_code($status_code);
             echo json_encode([
                 "message" => "Error deleting item",
-                "error" => $e->getMessage(),
-                "status" => "error"
-            ]);
-        }
-        break;
-
-    case 'PUT':
-        try {
-            $input = file_get_contents("php://input");
-            $data = json_decode($input);
-
-            if (!isset($data->id)) {
-                throw new Exception("Item ID is required.");
-            }
-
-            if (empty($data->title) || empty($data->category) || empty($data->description) || 
-                empty($data->location) || empty($data->date_lost_found) || empty($data->status)) {
-                throw new Exception("All required fields must be provided.");
-            }
-
-            $item->id = $data->id;
-            $item->title = $data->title;
-            $item->category = $data->category;
-            $item->description = $data->description;
-            $item->location = $data->location;
-            $item->date_lost_found = $data->date_lost_found;
-            $item->contact_email = $data->contact_email ?? '';
-            $item->storage_location = $data->storage_location ?? null;
-            $item->image_url = $data->image_url ?? null;
-            $item->status = $data->status;
-
-            if ($item->update()) {
-                http_response_code(200);
-                echo json_encode([
-                    "message" => "Item updated successfully.",
-                    "status" => "success",
-                    "item_id" => $item->id
-                ]);
-            } else {
-                throw new Exception("Unable to update item");
-            }
-
-        } catch (Exception $e) {
-            http_response_code(400);
-            echo json_encode([
-                "message" => "Error updating item",
                 "error" => $e->getMessage(),
                 "status" => "error"
             ]);
